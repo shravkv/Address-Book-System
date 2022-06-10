@@ -1,7 +1,7 @@
 // import java.awt.print.Book;
 import java.util.Scanner;
 
-public class AddressBook {
+public class AddressBookUc1 {
 
     private static Scanner scanner = new Scanner(System.in);
 
