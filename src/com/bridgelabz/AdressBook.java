@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AdressBook {
-
     static Map<String, AddressBookClass> bookClassMap = new HashMap<>();
     static Scanner scanner = new Scanner(System.in);
     static AddressBookClass addressBook = new AddressBookClass();
@@ -99,6 +98,5 @@ public class AdressBook {
             addressBook.addMultipleContacts();
         }
     }
+}
 
-}
-}

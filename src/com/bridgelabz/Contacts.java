@@ -13,6 +13,7 @@ public class Contacts {
     public Contacts() {
     }
 
+
     public Contacts(String firstName, String lastName, String address, String city, String state, String email, String zip, String phoneNum) {
         this.firstName = firstName;
         this.lastName = lastName;

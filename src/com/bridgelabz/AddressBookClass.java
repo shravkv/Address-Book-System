@@ -152,6 +152,4 @@ public class AddressBookClass {
             System.out.println(i + 1 + "-->Contact added successfully");
         }
     }
-
-
 }
