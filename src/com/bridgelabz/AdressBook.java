@@ -98,5 +98,15 @@ public class AdressBook {
             addressBook.addMultipleContacts();
         }
     }
+    public static void showContactsInAddressBook() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookClass book = bookClassMap.get(bookName);
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.showContacts();
+        }
+    }
 }
 

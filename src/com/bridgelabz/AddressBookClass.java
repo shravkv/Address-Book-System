@@ -152,4 +152,12 @@ public class AddressBookClass {
             System.out.println(i + 1 + "-->Contact added successfully");
         }
     }
+    public  void showContacts() {
+        if (contact.isEmpty()) {
+            System.out.println("Address book is empty");
+        } else {
+            Set<Contacts> productSet = contact.stream().collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Contacts::toString))));
+            productSet.forEach(System.out::println);
+        }
+    }
 }
