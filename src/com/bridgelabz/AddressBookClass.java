@@ -1,10 +1,9 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookClass {
-
     static final Scanner scanner = new Scanner(System.in);
     static final ArrayList<Contacts> contact = new ArrayList<>();
 
@@ -13,7 +12,7 @@ public class AddressBookClass {
         AddressBookClass addressBookClass = new AddressBookClass();
         boolean condition = true;
         while (condition) {
-            System.out.println("Choose the options \n1.AddContact\n2.EditContact\n3.DeleteContact\n4.AddMultipleContacts\n5.Exit");
+            System.out.println("Choose the options \n1.AddContact\n2.EditContact\n3.DeleteContact\n4.AddMultipleContacts\n5.ShowContacts\n6.SearchContactByCityOrState\n7.Exit");
             int options = scanner.nextInt();
             switch (options) {
                 case 1:
@@ -29,6 +28,12 @@ public class AddressBookClass {
                     addressBookClass.addMultipleContacts();
                     break;
                 case 5:
+                    addressBookClass.showContacts();
+                    break;
+                case 6:
+                    addressBookClass.searchMethod();
+                    break;
+                case 7:
                     condition = false;
                     System.out.println("Exiting the loop....");
                     break;
@@ -126,8 +131,6 @@ public class AddressBookClass {
             }
         }
     }
-
-
     public void deleteContact() {
         System.out.println("Enter first or last name to Delete contact");
         String confirmName = scanner.next();
@@ -158,6 +161,15 @@ public class AddressBookClass {
         } else {
             Set<Contacts> productSet = contact.stream().collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Contacts::toString))));
             productSet.forEach(System.out::println);
+        }
+    }
+    public void searchMethod() {
+        System.out.println("Enter the city or state to search Contact ");
+        String input = scanner.next();
+        for (Contacts book : contact) {
+            if (book.getCity().equals(input) || book.getState().equals(input)) {
+                System.out.println("Matches with city name contact is :" + book);
+            }
         }
     }
 }

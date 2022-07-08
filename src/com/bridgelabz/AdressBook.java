@@ -14,7 +14,7 @@ public class AdressBook {
         System.out.println("Welcome To AddressBook program");
         boolean condition = true;
         while (condition) {
-            System.out.println("choose options \n1 : AddNewAddressBook\n2 : AddContact\n3 : EditContact\n4 : Delete Contact\n5 : Add multiple contacts\n6 : Exit");
+            System.out.println("choose options \n1 : AddNewAddressBook\n2 : AddContact\n3 : EditContact\n4 : Delete Contact\n5 : Add multiple contacts\n6 : ShowContacts \n7 : SearchContactByCityOrState \n8 : Exit");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -33,15 +33,20 @@ public class AdressBook {
                     addMultipleContactsToAddressBook();
                     break;
                 case 6:
+                    showContactsInAddressBook();
+                    break;
+                case 7:
+                    searchByCityOrState();
+                    break;
+                case 8:
                     condition = false;
                     System.out.println("Exiting the loop ");
+                    break;
                 default:
                     System.out.println("Enter the correct number");
             }
         }
     }
-
-
     public static void addAddressBook() {
         System.out.println("Create a New Address Book\nEnter the New AddressBook name");
         String bookName = scanner.next();
@@ -60,7 +65,7 @@ public class AdressBook {
         String bookName = scanner.next();
         AddressBookClass book = bookClassMap.get(bookName);
         if (book == null) {
-            System.out.println("No Book found with these name");
+            System.out.println("No Book found with this name");
         } else {
             addressBook.addContact();
         }
@@ -71,7 +76,7 @@ public class AdressBook {
         String bookName = scanner.next();
         AddressBookClass book = bookClassMap.get(bookName);
         if (book == null) {
-            System.out.println("No Book found with these name");
+            System.out.println("No Book found with this name");
         } else {
             addressBook.editContacts();
         }
@@ -82,7 +87,7 @@ public class AdressBook {
         String bookName = scanner.next();
         AddressBookClass book = bookClassMap.get(bookName);
         if (book == null) {
-            System.out.println("No Book found with these name");
+            System.out.println("No Book found with this name");
         } else {
             addressBook.deleteContact();
         }
@@ -93,7 +98,7 @@ public class AdressBook {
         String bookName = scanner.next();
         AddressBookClass book = bookClassMap.get(bookName);
         if (book == null) {
-            System.out.println("No Book found with these name");
+            System.out.println("No Book found with this name");
         } else {
             addressBook.addMultipleContacts();
         }
@@ -103,9 +108,19 @@ public class AdressBook {
         String bookName = scanner.next();
         AddressBookClass book = bookClassMap.get(bookName);
         if (book == null) {
-            System.out.println("No book found with these name");
+            System.out.println("No book found with this name");
         } else {
             addressBook.showContacts();
+        }
+    }
+    public static void searchByCityOrState() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookClass book = bookClassMap.get(bookName);
+        if (book == null) {
+            System.out.println("No book found with this name");
+        } else {
+            addressBook.searchMethod();
         }
     }
 }
