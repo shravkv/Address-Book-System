@@ -5,40 +5,26 @@ import java.util.stream.Collectors;
 
 public class AddressBookClass {
     static final Scanner scanner = new Scanner(System.in);
-    static final ArrayList<Contacts> contact = new ArrayList<>();
+    static final LinkedList<Contacts> contact = new LinkedList<>();
 
     public static void main(String[] args) {
         System.out.println("Welcome to AddressBook program");
         AddressBookClass addressBookClass = new AddressBookClass();
         boolean condition = true;
         while (condition) {
-            System.out.println("Choose the options \n1.AddContact\n2.EditContact\n3.DeleteContact\n4.AddMultipleContacts\n5.Exit");
+            System.out.println("Choose the options \n1.AddContact\n2.EditContact\n3.DeleteContact\n4.AddMultipleContacts\n5.CountByCity\n6.Exit");
             int options = scanner.nextInt();
             switch (options) {
-                case 1:
-                    addressBookClass.addContact();
-                    break;
-                case 2:
-                    addressBookClass.editContacts();
-                    break;
-                case 3:
-                    addressBookClass.deleteContact();
-                    break;
-                case 4:
-                    addressBookClass.addMultipleContacts();
-                    break;
-                case 5:
-                    addressBookClass.showContacts();
-                    break;
-                case 6:
-                    addressBookClass.searchMethod();
-                    break;
-                case 7:
+                case 1 -> addressBookClass.addContact();
+                case 2 -> addressBookClass.editContacts();
+                case 3 -> addressBookClass.deleteContact();
+                case 4 -> addressBookClass.addMultipleContacts();
+                case 5 -> addressBookClass.countCity();
+                case 6 -> {
                     condition = false;
                     System.out.println("Exiting the loop....");
-                    break;
-                default:
-                    System.out.println("Enter the correct number");
+                }
+                default -> System.out.println("Enter the correct number");
             }
         }
     }
@@ -185,5 +171,11 @@ public class AddressBookClass {
         } else {
             contact.stream().sorted(Comparator.comparing(Contacts::getCity)).forEach(System.out::println);
         }
+    }
+    public void countCity() {
+        System.out.println("Enter a City name ");
+        String input = scanner.next();
+        long count = contact.stream().filter(city -> city.getCity().equals(input)).count();
+        System.out.println("No of contacts Matched " + input + " city is : " + count);
     }
 }

@@ -17,33 +17,18 @@ public class AddressBook {
             System.out.println("choose options \n1 : AddNewAddressBook\n2 : AddContact\n3 : EditContact\n4 : Delete Contact\n5 : Add multiple contacts\n6 : ShowContacts \n7 : MoreOptions \n8 : Exit");
             int choice = scanner.nextInt();
             switch (choice) {
-                case 1:
-                    addAddressBook();
-                    break;
-                case 2:
-                    addAddressBookContact();
-                    break;
-                case 3:
-                    editAddressBookContact();
-                    break;
-                case 4:
-                    deleteAddressBookContact();
-                    break;
-                case 5:
-                    addMultipleContactsToAddressBook();
-                    break;
-                case 6:
-                    showContactsInAddressBook();
-                    break;
-                case 7:
-                    moreOptions();
-                    break;
-                case 8:
+                case 1 -> addAddressBook();
+                case 2 -> addAddressBookContact();
+                case 3 -> editAddressBookContact();
+                case 4 -> deleteAddressBookContact();
+                case 5 -> addMultipleContactsToAddressBook();
+                case 6 -> showContactsInAddressBook();
+                case 7 -> moreOptions();
+                case 8 -> {
                     condition = false;
                     System.out.println("Exiting the loop ");
-                    break;
-                default:
-                    System.out.println("Enter the correct number");
+                }
+                default -> System.out.println("Enter the correct number");
             }
         }
     }
@@ -51,24 +36,17 @@ public class AddressBook {
     public static void moreOptions() {
         boolean condition = true;
         while (condition) {
-            System.out.println("Choose the options\n1.SearchContactByCity\n2.SortingByPersonName\n3.SortingByCity\n4.Exit ");
+            System.out.println("Choose the options\n1.SearchContactByCity\n2.SortingByPersonName\n3.SortingByCity\n4.BackToMainMenu ");
             int option = scanner.nextInt();
             switch (option) {
-                case 1:
-                    searchByCityOrState();
-                    break;
-                case 2:
-                    sortingByPersonName();
-                    break;
-                case 3:
-                    sortingByCity();
-                    break;
-                case 4:
+                case 1 -> searchByCityOrState();
+                case 2 -> sortingByPersonName();
+                case 3 -> sortingByCity();
+                case 4 -> {
                     condition = false;
                     System.out.println("Back To Main menu");
-                    break;
-                default:
-                    System.out.println("Enter the correct option");
+                }
+                default -> System.out.println("Enter the correct option");
             }
         }
     }
