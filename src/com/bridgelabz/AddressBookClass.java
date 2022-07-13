@@ -12,7 +12,7 @@ public class AddressBookClass {
         AddressBookClass addressBookClass = new AddressBookClass();
         boolean condition = true;
         while (condition) {
-            System.out.println("Choose the options \n1.AddContact\n2.EditContact\n3.DeleteContact\n4.AddMultipleContacts\n5.ShowContacts\n6.SearchContactByCityOrState\n7.Exit");
+            System.out.println("Choose the options \n1.AddContact\n2.EditContact\n3.DeleteContact\n4.AddMultipleContacts\n5.Exit");
             int options = scanner.nextInt();
             switch (options) {
                 case 1:
@@ -177,6 +177,13 @@ public class AddressBookClass {
             System.out.println("Contacts book is empty");
         } else {
             contact.stream().sorted(Comparator.comparing(Contacts::getFirstName)).forEach(System.out::println);
+        }
+    }
+    public void sortingByCity() {
+        if (contact.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            contact.stream().sorted(Comparator.comparing(Contacts::getCity)).forEach(System.out::println);
         }
     }
 }

@@ -51,7 +51,7 @@ public class AddressBook {
     public static void moreOptions() {
         boolean condition = true;
         while (condition) {
-            System.out.println("Choose the options\n1.SearchContactByCity\n2.SortingByPersonName\n3.Exit ");
+            System.out.println("Choose the options\n1.SearchContactByCity\n2.SortingByPersonName\n3.SortingByCity\n4.Exit ");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -61,6 +61,9 @@ public class AddressBook {
                     sortingByPersonName();
                     break;
                 case 3:
+                    sortingByCity();
+                    break;
+                case 4:
                     condition = false;
                     System.out.println("Back To Main menu");
                     break;
@@ -159,6 +162,17 @@ public class AddressBook {
             addressBook.sortingByPersonName();
         }
     }
+    public static void sortingByCity() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookClass book = bookClassMap.get(bookName);
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.sortingByCity();
+        }
+    }
+
 }
 
 
