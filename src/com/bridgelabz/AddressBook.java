@@ -71,7 +71,7 @@ public class AddressBook {
         if (book == null) {
             System.out.println("No Book found with these name");
         } else {
-            addressBook.addContact();
+            addressBook.addContact(scanner);
         }
     }
 
